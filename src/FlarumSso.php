@@ -1,6 +1,6 @@
 <?php
 
-namespace burnthebook\craftflarumsso;
+namespace tbmatuka\craftflarumsso;
 
 use Craft;
 use yii\base\Event;
@@ -17,8 +17,8 @@ use craft\web\User as WebUser;
 use craft\events\FindLoginUserEvent;
 use Monolog\Formatter\LineFormatter;
 use craft\controllers\UsersController;
-use burnthebook\craftflarumsso\models\Settings;
-use burnthebook\craftflarumsso\services\FlarumApiClient;
+use tbmatuka\craftflarumsso\models\Settings;
+use tbmatuka\craftflarumsso\services\FlarumApiClient;
 
 /**
  * Flarum SSO for Craft 4 plugin
@@ -216,7 +216,7 @@ class FlarumSso extends Plugin
     /**
      * Log the user into Flarum with their Craft Credentials
      *
-     * @param \burnthebook\craftflarumsso\services\FlarumApiClient $client An instance of the Flarum API Client
+     * @param \tbmatuka\craftflarumsso\services\FlarumApiClient $client An instance of the Flarum API Client
      * @param array $user The Craft CMS User Data
      *
      * @return void
@@ -255,7 +255,7 @@ class FlarumSso extends Plugin
     /**
      * Log the user out
      *
-     * @param \burnthebook\craftflarumsso\services\FlarumApiClient $client An instance of the Flarum API Client
+     * @param \tbmatuka\craftflarumsso\services\FlarumApiClient $client An instance of the Flarum API Client
      *
      * @return  void
      */
@@ -268,7 +268,7 @@ class FlarumSso extends Plugin
     /**
      * Sign the user up to Flarum with their Craft Credentials
      *
-     * @param \burnthebook\craftflarumsso\services\FlarumApiClient $client An instance of the Flarum API Client
+     * @param \tbmatuka\craftflarumsso\services\FlarumApiClient $client An instance of the Flarum API Client
      * @param array $user The Craft CMS User Data
      *
      * @return void

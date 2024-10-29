@@ -1,6 +1,6 @@
 <?php
 
-namespace burnthebook\craftflarumsso\services;
+namespace tbmatuka\craftflarumsso\services;
 
 use Craft;
 use yii\log\Logger;

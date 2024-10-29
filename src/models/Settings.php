@@ -1,6 +1,6 @@
 <?php
 
-namespace burnthebook\craftflarumsso\models;
+namespace tbmatuka\craftflarumsso\models;
 
 use Craft;
 use craft\base\Model;
