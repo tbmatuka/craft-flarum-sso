@@ -3,7 +3,7 @@
 
 {% import '_includes/forms.twig' as forms %}
 
-{{ 
+{{
     forms.textField({
         first: true,
         label: 'Flarum URL (with http(s)://)',
@@ -12,9 +12,9 @@
         name: 'flarumApiUrl',
         required: true,
         value: settings.flarumApiUrl
-    }) 
+    })
 }}
-{{ 
+{{
     forms.textField({
         label: 'Flarum API Key',
         instructions: "Required - the API key you manually inserted into your Flarum installations api_keys database table.",
@@ -22,9 +22,18 @@
         name: 'flarumApiKey',
         required: true,
         value: settings.flarumApiKey
-    }) 
+    })
 }}
-{{ 
+{{
+    forms.lightswitchField({
+        label: 'Email Usernames',
+        instructions: "Optional, leave as default if unsure. Check if you are using email as usernames in Craft. This will generate a Flarum username like 'user<userId>'. Use the Nicknames Flarum plugin to allow users to not force users to use these usernames.",
+        id: 'emailUsernames',
+        name: 'emailUsernames',
+        on: settings.emailUsernames
+    })
+}}
+{{
     forms.textField({
         label: 'Flarum SSO Cookie - Domain',
         instructions: "Required - the root domain for the SSO Cookie. If your Craft CMS installation is on www.craftcms.com, and your Flarum installation is on discuss.craftcms.com, you would set this to 'craftcms.com'",
@@ -32,7 +41,7 @@
         name: 'flarumCookieDomain',
         required: true,
         value: settings.flarumCookieDomain
-    }) 
+    })
 }}
 {{
     forms.lightswitchField({
@@ -41,7 +50,7 @@
         id: 'flarumCookieHttpOnly',
         name: 'flarumCookieHttpOnly',
         on: settings.flarumCookieHttpOnly
-    }) 
+    })
 }}
 {{
     forms.lightswitchField({
@@ -50,25 +59,25 @@
         id: 'flarumCookieSecureOnly',
         name: 'flarumCookieSecureOnly',
         on: settings.flarumCookieSecureOnly
-    }) 
+    })
 }}
-{{ 
+{{
     forms.textField({
         label: 'Flarum SSO Cookie - Prefix',
         instructions: "Optional, leave as default if unsure.",
         id: 'flarumCookiePrefix',
         name: 'flarumCookiePrefix',
         value: settings.flarumCookiePrefix
-    }) 
+    })
 }}
-{{ 
+{{
     forms.textField({
         label: 'Flarum SSO Cookie - Path',
         instructions: "Optional, leave as default if unsure.",
         id: 'flarumCookiePath',
         name: 'flarumCookiePath',
         value: settings.flarumCookiePath
-    }) 
+    })
 }}
 {{
     forms.selectField({
@@ -83,5 +92,5 @@
             {label: 'None', value: 'none'},
         ],
         value: settings.flarumCookieSameSite,
-    }) 
+    })
 }}

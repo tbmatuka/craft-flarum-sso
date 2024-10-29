@@ -1,6 +1,6 @@
 {
-    "name": "burnthebook/craft-flarum-sso",
-    "description": "Adds Single Sign On (SSO) for Craft 4 as master with Flarum as slave",
+    "name": "tbmatuka/craft-flarum-sso",
+    "description": "Fork of burnthebook/craft-flarum-sso",
     "type": "craft-plugin",
     "license": "mit",
     "authors": [
@@ -8,18 +8,16 @@
           "name": "Michael Burton",
           "homepage": "https://github.com/Burnthebook",
           "role": "Developer"
+        },
+        {
+            "name": "Tin Benjamin Matuka",
+            "homepage": "https://www.tbmatuka.com/",
+            "role": "Developer"
         }
     ],
-    "support": {
-        "email": "support@burnthebook.co.uk",
-        "issues": "https://github.com/burnthebook/craft-flarum-sso/issues?state=open",
-        "source": "https://github.com/burnthebook/craft-flarum-sso",
-        "docs": "https://github.com/burnthebook/craft-flarum-sso",
-        "rss": "https://github.com/burnthebook/craft-flarum-sso/releases.atom"
-    },
     "require": {
         "php": ">=8.0.2",
-        "craftcms/cms": "^4.5.0|^5.0.0",
+        "craftcms/cms": "^5.0.0",
         "guzzlehttp/guzzle": "^7.8",
         "josantonius/cookie": "^2.0"
     },
@@ -30,15 +28,13 @@
     },
     "autoload": {
         "psr-4": {
-            "burnthebook\\craftflarumsso\\": "src/"
+            "tbmatuka\\craftflarumsso\\": "src/"
         }
     },
     "extra": {
         "handle": "flarum-sso",
-        "name": "Flarum SSO for Craft 4",
-        "developer": "Burnthebook",
-        "documentationUrl": "https://github.com/burnthebook/craft-flarum-sso",
-        "class": "burnthebook\\craftflarumsso\\FlarumSso"
+        "name": "Flarum SSO for Craft 5",
+        "class": "tbmatuka\\craftflarumsso\\FlarumSso"
     },
     "scripts": {
         "check-cs": "ecs check --ansi",

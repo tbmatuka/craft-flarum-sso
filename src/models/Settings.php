@@ -23,6 +23,12 @@ class Settings extends Model
     public string $flarumApiKey = '';
 
     /**
+     * Email Usernames
+     * @var bool
+     */
+    public bool $emailUsernames = false;
+
+    /**
      * Flarum Cookie - Domain (Required)
      * @var string
      */
@@ -74,6 +80,7 @@ class Settings extends Model
             ],
             [
                 [
+                    'emailUsernames',
                     'flarumCookieHttpOnly',
                     'flarumCookieSecureOnly',
                 ],
