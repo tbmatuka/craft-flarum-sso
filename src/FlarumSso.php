@@ -3,6 +3,7 @@
 namespace tbmatuka\craftflarumsso;
 
 use Craft;
+use craft\helpers\App;
 use yii\base\Event;
 use yii\log\Logger;
 use craft\base\Model;
@@ -86,15 +87,20 @@ class FlarumSso extends Plugin
 
     private function attachEventHandlers(): void
     {
+        // Don't break requests if the plugin is not configured
+        if (!$this->settings->getFlarumApiUrl() || !$this->settings->getFlarumApiKey()) {
+            return;
+        }
+
         // Register event handlers here ...
         // (see https://craftcms.com/docs/4.x/extend/events.html to get started)
 
         // API Client Options
         $options = [
-            'endpoint' => $this->settings->flarumApiUrl,
-            'api_key' => $this->settings->flarumApiKey,
+            'endpoint' => $this->settings->getFlarumApiUrl(),
+            'api_key' => $this->settings->getFlarumApiKey(),
             'cookie_options' => [
-                'domain' => $this->settings->flarumCookieDomain,
+                'domain' => $this->settings->getFlarumCookieDomain(),
                 'prefix' => $this->settings->flarumCookiePrefix ?? 'flarum_', // optional
                 'http_only' => $this->settings->flarumCookieHttpOnly ?? true, // optional
                 'path' => $this->settings->flarumCookiePath ?? '/', // optional
@@ -102,11 +108,6 @@ class FlarumSso extends Plugin
                 'secure_only' => $this->settings->flarumCookieSecureOnly ?? false, // optional
             ]
         ];
-
-        // Don't break requests if the plugin is not configured
-        if (!$this->settings->flarumApiUrl || !$this->settings->flarumApiKey) {
-            return;
-        }
 
         // Init client
         $client = new FlarumApiClient(

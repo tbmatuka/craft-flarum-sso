@@ -3,6 +3,8 @@
 namespace tbmatuka\craftflarumsso\models;
 
 use Craft;
+use craft\behaviors\EnvAttributeParserBehavior;
+use craft\helpers\App;
 use craft\base\Model;
 
 /**
@@ -95,5 +97,30 @@ class Settings extends Model
                 'string',
             ],
         ];
+    }
+
+    public function defineBehaviors(): array
+    {
+        return [
+            'parser' => [
+                'class' => EnvAttributeParserBehavior::class,
+                'attributes' => ['flarumApiUrl', 'flarumApiKey', 'flarumCookieDomain'],
+            ],
+        ];
+    }
+
+    public function getFlarumApiUrl(): string
+    {
+        return App::parseEnv($this->flarumApiUrl);
+    }
+
+    public function getFlarumApiKey(): string
+    {
+        return App::parseEnv($this->flarumApiKey);
+    }
+
+    public function getFlarumCookieDomain(): string
+    {
+        return App::parseEnv($this->flarumCookieDomain);
     }
 }
