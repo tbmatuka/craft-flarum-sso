@@ -1,4 +1,4 @@
-# Flarum SSO for Craft 5
+# Flarum SSO for Craft 4
 
 This is a fork of [burnthebook/craft-flarum-sso](https://github.com/Burnthebook/craft-flarum-sso) that I created for a project that uses emails as usernames.
 
